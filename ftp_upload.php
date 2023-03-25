@@ -1,6 +1,6 @@
 
   <?php
-  //check if form is submitted
+  //confirmacion del sumit
   if (isset($_POST['submit'])) {
     // ftp settings
     $ftp_hostname = '127.0.0.1';
@@ -11,10 +11,10 @@
 
     //subir archivo
     if ($src_file != '') {
-      // remote file path
+      // ruta del servidor
       $dst_file = $remote_dir . $src_file;
 
-      // connect ftp
+      // coneccion ftp
       $ftpcon = ftp_connect($ftp_hostname) or die('Error connecting to ftp server...');
 
       // ftp login
@@ -26,7 +26,7 @@
       else
         echo 'Error al subir el archivo.';
 
-      // close ftp stream
+      // cerrando la conexcion ftp
       ftp_close($ftpcon);
     } else
       header('Location: index.php');
