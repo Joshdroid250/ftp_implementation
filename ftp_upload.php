@@ -1,5 +1,4 @@
-
-  <?php
+<?php
   //confirmacion del sumit
   if (isset($_POST['submit'])) {
     // ftp settings
@@ -14,14 +13,14 @@
       // ruta del servidor
       $dst_file = $remote_dir . $src_file;
 
-      // coneccion ftp
-      $ftpcon = ftp_connect($ftp_hostname) or die('Error connecting to ftp server...');
+      // connect ftp
+      $ftpcon = ftp_ssl_connect($ftp_hostname) or die('Error al conectar al servidor...');
 
       // ftp login
       $ftplogin = ftp_login($ftpcon, $ftp_username, $ftp_password);
 
       // ftp upload
-      if (ftp_put($ftpcon, $dst_file, $_FILES['srcfile']['tmp_name'], FTP_ASCII))
+      if (ftp_put($ftpcon, $dst_file, $_FILES['srcfile']['tmp_name'], FTP_BINARY))
         echo 'El archivo se subio satisfactoriamente!';
       else
         echo 'Error al subir el archivo.';
