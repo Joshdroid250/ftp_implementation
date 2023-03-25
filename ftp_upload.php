@@ -6,7 +6,7 @@
     $ftp_hostname = '127.0.0.1';
     $ftp_username = 'admin';
     $ftp_password = '12345';
-    $remote_dir = 'C:\Users\campo\Desktop\archivos_ftp_server';
+    $remote_dir = '/';
     $src_file = $_FILES['srcfile']['name'];
 
     //subir archivo
@@ -21,10 +21,10 @@
       $ftplogin = ftp_login($ftpcon, $ftp_username, $ftp_password);
 
       // ftp upload
-      if (ftp_put($ftpcon, $dst_file, $src_file, FTP_ASCII))
-        echo 'File uploaded successfully to FTP server!';
+      if (ftp_put($ftpcon, $dst_file, $_FILES['srcfile']['tmp_name'], FTP_ASCII))
+        echo 'El archivo se subio satisfactoriamente!';
       else
-        echo 'Error uploading file! Please try again later.';
+        echo 'Error al subir el archivo.';
 
       // close ftp stream
       ftp_close($ftpcon);
