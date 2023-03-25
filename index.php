@@ -9,7 +9,7 @@
 <div class="container">
     <div class="col-xs-8 col-xs-offset-2 well" style="background:none;">
     <form action="ftp_upload.php" method="post" enctype="multipart/form-data">
-        <legend>Selecciona el archivo</legend>
+        <legend>Please Choose File to Upload</legend>
         <div class="form-group">
             <input type="file" name="srcfile" />
         </div>
